@@ -89,16 +89,8 @@ WSGI_APPLICATION = 'btre.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'btredb',
-        'USER': 'postgres',
-        'PASSWORD': '123456',
-        'HOST': 'localhost',
-        'PORT': '5430'
-    }
-}
+DATABASES = {'default': dj_database_url.parse(
+    'postgres://hbsxvyzhbtllvf:43b25e0b656212b0b3775fa6b440b2a6c94642ed8714da25dc6f9dc17ddaf441@ec2-184-72-235-159.compute-1.amazonaws.com:5432/depki2k03fii5k')}
 
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
